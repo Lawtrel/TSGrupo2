@@ -14,7 +14,7 @@ DATA:20/07/2024
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <a href="#clients"  onclick="showClient()" ><img src="./assets/images/clientIcon.png"/></i> Clientes</a>
     <a href="#supplier" onclick="showSupplier()" ><img src="./assets/images/Supplier.svg"/></i> Fornecedor</a>
-    <a href="#products" onclick="showProdutos()" ><img src="./assets/images/Products.svg"/></i> Produtos</a>
+    <a href="#products" onclick="showProducts()" ><img src="./assets/images/Products.svg"/></i> Produtos</a>
     <a href="#consult"  onclick="showConsult()" ><img src="./assets/images/Car.svg"/></i> Consultar</a>
     <a href="#mechanic" onclick="showMechanic()" ><img src="./assets/images/Mechanic.svg"</i> Mecanico</a>    
     <a href="#orders"   onclick="showOrders()" ><img src="./assets/images/Orders.svg"</i> OS</a>

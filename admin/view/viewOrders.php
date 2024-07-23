@@ -57,7 +57,7 @@ DATA:20/07/2024
                 }
             ?>
               
-        <td><a class="btn btn-primary openPopup" data-href="./adminView/viewEachOrder.php?orderID=<?=$row['order_id']?>" href="javascript:void(0);">Ver</a></td>
+        <td><a class="btn btn-primary openPopup" data-href="./view/viewEachOrder.php?orderID=<?=$row['order_id']?>" href="javascript:void(0);">Ver</a></td>
         </tr>
     <?php
             

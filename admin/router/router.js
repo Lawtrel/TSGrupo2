@@ -20,7 +20,7 @@ function showSupplier(){
 }
 function showProducts(){
   $.ajax({
-      url:"./view/viewProdutos.php",
+      url:"./view/viewProducts.php",
       method:"post",
       data:{record:1},
       success:function(data){
