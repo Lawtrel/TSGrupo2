@@ -1,0 +1,20 @@
+CREATE TABLE clients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client_name VARCHAR(255) NOT NULL,
+    cpf_cnpj VARCHAR(20) NOT NULL,
+    person_type VARCHAR(10) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    number VARCHAR(10) NOT NULL,
+    neighborhood VARCHAR(100) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    zip VARCHAR(10) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    plate VARCHAR(10) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    year VARCHAR(4) NOT NULL,
+    color VARCHAR(20) NOT NULL,
+    renavam VARCHAR(20) NOT NULL,
+    registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

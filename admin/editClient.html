@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente - Garagem Tech</title>
+    <link rel="stylesheet" href="./assets/css/editClient.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./assets/logo.png" alt="Garagem Tech Logo" class="logo">
+            <h1>Editar Cliente</h1>
+        </header>
+        <form id="searchClientForm">
+            <div class="form-group">
+                <label for="searchName">Nome do Cliente</label>
+                <input type="text" id="searchName" name="searchName" required>
+                <button type="submit">Buscar</button>
+            </div>
+        </form>
+        <form id="editClientForm" style="display: none;">
+            <input type="hidden" id="clientId" name="id">
+            <fieldset>
+                <legend>Base</legend>
+                <div class="form-group">
+                    <label for="client_name">Cliente</label>
+                    <input type="text" id="client_name" name="client_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpf_cnpj">CPF/CNPJ</label>
+                    <input type="text" id="cpf_cnpj" name="cpf_cnpj">
+                </div>
+                <div class="form-group">
+                    <label for="person_type">Tipo de pessoa</label>
+                    <input type="text" id="person_type" name="person_type">
+                </div>
+                <div class="form-group">
+                    <label for="address">Endereço</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="form-group">
+                    <label for="number">Número</label>
+                    <input type="text" id="number" name="number">
+                </div>
+                <div class="form-group">
+                    <label for="neighborhood">Bairro</label>
+                    <input type="text" id="neighborhood" name="neighborhood">
+                </div>
+                <div class="form-group">
+                    <label for="city">Cidade</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-group">
+                    <label for="zip">CEP</label>
+                    <input type="text" id="zip" name="zip">
+                </div>
+                <div class="form-group">
+                    <label for="country">País</label>
+                    <input type="text" id="country" name="country">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Celular</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Informação Veicular</legend>
+                <div class="form-group">
+                    <label for="plate">Placa</label>
+                    <input type="text" id="plate" name="plate">
+                </div>
+                <div class="form-group">
+                    <label for="model">Marca/Modelo</label>
+                    <input type="text" id="model" name="model">
+                </div>
+                <div class="form-group">
+                    <label for="year">Ano</label>
+                    <input type="text" id="year" name="year">
+                </div>
+                <div class="form-group">
+                    <label for="color">Cor</label>
+                    <input type="text" id="color" name="color">
+                </div>
+                <div class="form-group">
+                    <label for="renavam">Renavam</label>
+                    <input type="text" id="renavam" name="renavam">
+                </div>
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit">Atualizar</button>
+                <button type="button" onclick="history.back()">Voltar</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+            document.getElementById('searchClientForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const searchName = document.getElementById('searchName').value;
+
+            fetch(`./dao/searchClient.php?name=${encodeURIComponent(searchName)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.client) {
+                        populateEditForm(data.client);
+                        document.getElementById('editClientForm').style.display = 'block';
+                    } else {
+                        alert(data.message);
+                        document.getElementById('editClientForm').style.display = 'none';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        function populateEditForm(client) {
+                    document.getElementById('clientId').value = client.id,
+                    document.getElementById('client_name').value = client.client_name,
+                    document.getElementById('cpf_cnpj').value = client.cpf_Cnpj,
+                    document.getElementById('person_type').value = client.person_Type,
+                    document.getElementById('address').value = client.address,
+                    document.getElementById('number').value = client.number,
+                    document.getElementById('neighborhood').value = client.neighborhood,
+                    document.getElementById('city').value = client.city,
+                    document.getElementById('zip').value = client.zip,
+                    document.getElementById('country').value = client.country,
+                    document.getElementById('phone').value = client.phone,
+                    document.getElementById('email').value = client.email,
+                    document.getElementById('plate').value = client.plate,
+                    document.getElementById('model').value = client.model,
+                    document.getElementById('year').value = client.year,
+                    document.getElementById('color').value = client.color,
+                    document.getElementById('renavam').value = client.renavam;
+        }
+
+
+            document.getElementById('editClientForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = {
+                    id: document.getElementById('clientId').value,
+                    client_name: document.getElementById('client_name').value,
+                    cpf_cnpj: document.getElementById('cpf_cnpj').value,
+                    person_type: document.getElementById('person_type').value,
+                    address: document.getElementById('address').value,
+                    number: document.getElementById('number').value,
+                    neighborhood: document.getElementById('neighborhood').value,
+                    city: document.getElementById('city').value,
+                    zip: document.getElementById('zip').value,
+                    country: document.getElementById('country').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    plate: document.getElementById('plate').value,
+                    model: document.getElementById('model').value,
+                    year: document.getElementById('year').value,
+                    color: document.getElementById('color').value,
+                    renavam: document.getElementById('renavam').value
+                };
+
+                fetch('./dao/editClient.php', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    if (data.message === "Client atualizado") {
+                    document.getElementById('editClientForm').reset();
+                    document.getElementById('editClientForm').style.display = 'none';
+                }
+            })
+                .catch(error => console.error('Error:', error));
+            });
+    </script>
+</body>
+</html>
