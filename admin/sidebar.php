@@ -12,7 +12,6 @@ DATA:20/07/2024
 
 <hr style="border:1px solid; background-color:#8239BA; border-color:#8239BA;">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#" ><i class="fa fa-home"></i> Dashboard</a>
     <a href="#clients"  onclick="showClient()" ><img src="./assets/images/clientIcon.png"/></i> Clientes</a>
     <a href="#supplier" onclick="showSupplier()" ><img src="./assets/images/Supplier.svg"/></i> Fornecedor</a>
     <a href="#products" onclick="showProdutos()" ><img src="./assets/images/Products.svg"/></i> Produtos</a>
