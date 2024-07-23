@@ -20,6 +20,7 @@ DATA:20/07/2024
             include "./sidebar.php";
            
             include_once "./config/dbconnect.php";
+            
         ?>
 
     <div id="main-content" class="container allContent-section py-4">
