@@ -44,3 +44,23 @@ function showMechanic(){
       }
   });
 }
+function showOrders(){
+  $.ajax({
+      url:"./view/viewOrders.php",
+      method:"post",
+      data:{record:1},
+      success:function(data){
+          $('.allContent-section').html(data);
+      }
+  });
+}
+function showReport(){
+  $.ajax({
+      url:"./view/viewReport.php",
+      method:"post",
+      data:{record:1},
+      success:function(data){
+          $('.allContent-section').html(data);
+      }
+  });
+}
