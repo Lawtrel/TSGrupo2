@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Fornecedor - GaragemTech</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Editar Fornecedor</h1>
+    <form id="editSupplierForm">
+      <div class="form-group">
+        <label for="supplierId">ID do Fornecedor</label>
+        <input type="text" class="form-control" id="supplierId" name="supplierId" required>
+      </div>
+      <div class="form-group">
+        <label for="supplierName">Nome do Fornecedor</label>
+        <input type="text" class="form-control" id="supplierName" name="supplierName" required>
+      </div>
+      <div class="form-group">
+        <label for="orderDescription">Descrição do Pedido</label>
+        <input type="text" class="form-control" id="orderDescription" name="orderDescription" required>
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-control" id="status" name="status" required>
+          <option value="in-progress">Em andamento</option>
+          <option value="shipping">Enviando</option>
+          <option value="delivered">Entregue</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="shipmentDate">Data de Envio</label>
+        <input type="date" class="form-control" id="shipmentDate" name="shipmentDate" required>
+      </div>
+      <div class="form-group">
+        <label for="deliveryDate">Data de Entrega</label>
+        <input type="date" class="form-control" id="deliveryDate">
+      </div>
+      <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#editSupplierForm').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: './dao/edit_supplier.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    alert('Fornecedor atualizado com sucesso!');
+                    window.location.href = 'admin.php';
+                }
+            });
+        });
+    });
+  </script>
+</body>
+</html>

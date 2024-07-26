@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log de Registro - GaragemTech</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Log de Registro</h1>
+    <table id="logTable" class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome do Fornecedor</th>
+          <th>Descrição do Pedido</th>
+          <th>Status</th>
+          <th>Data de Envio</th>
+          <th>Data de Entrega</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Os dados serão preenchidos dinamicamente pelo JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $.ajax({
+            url: './dao/fetch_suppliers.php',
+            type: 'GET',
+            success: function(data) {
+                let response = JSON.parse(data);
+                let suppliers = response.suppliers;
+                let tableBody = $('#logTable tbody');
+                tableBody.empty();
+
+                if (suppliers.length > 0) {
+                    suppliers.forEach(function(supplier) {
+                        let row = '<tr>' +
+                            '<td>' + supplier.id + '</td>' +
+                            '<td>' + supplier.supplier_name + '</td>' +
+                            '<td>' + supplier.order_description + '</td>' +
+                            '<td>' + supplier.status + '</td>' +
+                            '<td>' + supplier.shipment_date + '</td>' +
+                            '<td>' + supplier.delivery_date + '</td>' +
+                            '</tr>';
+                        tableBody.append(row);
+                    });
+                } else {
+                    tableBody.append('<tr><td colspan="6" class="text-center">Nenhum fornecedor encontrado</td></tr>');
+                }
+            }
+        });
+    });
+  </script>
+</body>
+</html>

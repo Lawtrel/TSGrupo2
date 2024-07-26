@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Fornecedor - GaragemTech</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Adicionar Fornecedor</h1>
+    <form id="addSupplierForm">
+      <div class="form-group">
+        <label for="supplierName">Nome do Fornecedor</label>
+        <input type="text" class="form-control" id="supplierName" name="supplierName" required>
+      </div>
+      <div class="form-group">
+        <label for="orderDescription">Descrição do Pedido</label>
+        <input type="text" class="form-control" id="orderDescription" name="orderDescription" required>
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-control" id="status" name="status" required>
+          <option value="in-progress">Em andamento</option>
+          <option value="shipping">Enviando</option>
+          <option value="delivered">Entregue</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="shipmentDate">Data de Envio</label>
+        <input type="date" class="form-control" id="shipmentDate" name="shipmentDate" required>
+      </div>
+      <div class="form-group">
+        <label for="deliveryDate">Data de Entrega</label>
+        <input type="date" class="form-control" id="deliveryDate" name="deliveryDate">
+      </div>
+      <button type="submit" class="btn btn-primary">Adicionar</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#addSupplierForm').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: './dao/addSupplier.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    alert('Fornecedor adicionado com sucesso!');
+                    window.location.href = 'admin.php';
+                }
+            });
+        });
+    });
+  </script>
+</body>
+</html>
