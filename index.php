@@ -11,6 +11,7 @@ DATA:20/07/2024
     <link rel="stylesheet" href="Userpagestyle.css">
     <!--Link dos icones-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="favicon.png" type="image/x-icon"/>
     <title>Garagem tech landing page</title>
 </head>
 <body>
