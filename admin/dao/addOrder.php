@@ -15,6 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($conn->query($sql) === TRUE) {
         echo "Nova ordem de serviço adicionada com sucesso!";
+        header('Location: ../admin.php');
+
     } else {
         echo "Erro: " . $sql . "<br>" . $conn->error;
     }

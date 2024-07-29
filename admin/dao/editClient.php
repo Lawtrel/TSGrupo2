@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $sql = "UPDATE clients SET client_name = ?, cpf_cnpj = ?, person_type = ?, address = ?, number = ?, neighborhood = ?, city = ?, zip = ?, country = ?, phone = ?, email = ?, plate = ?, model = ?, year = ?, color = ?, renavam = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
 
-    $stmt->bind_param("ssssississssisisi",
+    $stmt->bind_param("ssssississssssssi",
         $input['client_name'], $input['cpf_cnpj'], $input['person_type'], $input['address'],
         $input['number'], $input['neighborhood'], $input['city'], $input['zip'], $input['country'],
         $input['phone'], $input['email'], $input['plate'], $input['model'], $input['year'],

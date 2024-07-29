@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
-    $stmt->bind_param("ssssississssisis",
+    $stmt->bind_param("ssssississssssss",
         $input['client_name'], $input['cpf_cnpj'], $input['person_type'], $input['address'],
         $input['number'], $input['neighborhood'], $input['city'], $input['zip'], $input['country'],
         $input['phone'], $input['email'], $input['plate'], $input['model'], $input['year'],

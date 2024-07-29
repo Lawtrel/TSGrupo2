@@ -18,7 +18,7 @@ DATA:20/07/2024
     <a href="#consult"  onclick="showConsult()" ><img src="./assets/images/Car.svg"/></i> Consultar</a>
     <a href="#mechanic" onclick="showMechanic()" ><img src="./assets/images/Mechanic.svg"</i> Mecanico</a>    
     <a href="#orders"   onclick="showOrders()" ><img src="./assets/images/Orders.svg"</i> OS</a>
-    <a href="#report"   onclick="showReport()" ><img src="./assets/images/Consult.svg"</i> Relatorio</a>
+   <!-- <a href="#report"   onclick="showReport()" ><img src="./assets/images/Consult.svg"</i> Relatorio</a>!-->
 </div>
  
 <div id="main">

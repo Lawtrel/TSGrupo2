@@ -5,7 +5,7 @@ DATA:20/07/2024
 
 <?php
 
-@include 'config.php';
+@include './config/config.php';
 
 if(isset($_POST['submit'])){
    $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -65,7 +65,7 @@ if(isset($_POST['submit'])){
                         <option value="user">Cliente</option>
                         <option value="admin">Administrador</option>
                     </select>
-                    <input type="submit" name="submit" value="Cadastrar" class="btn-login">
+                    <input type="submit" name="submit" value="Criar" class="btn-login">
                     <p>Você ja tem uma conta? <a href="index.php">login agora</a></p>
                 </div>
             </form>

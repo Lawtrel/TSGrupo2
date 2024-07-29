@@ -112,7 +112,7 @@
                 renavam: document.getElementById('renavam').value
             };
 
-            fetch('addClient.php', {
+            fetch('./dao/addClient.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

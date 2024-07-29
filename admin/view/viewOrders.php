@@ -145,6 +145,7 @@ DATA:20/07/2024
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Adicionar Ordem de Serviço</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </form>
             </div>
         </div>
